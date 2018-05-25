@@ -7,7 +7,7 @@ import { YELLOW, RED } from "../lib/colors";
 import Buttons from '../lib/Buttons';
 
 const buttons = (agree, disagree) => [
-  {label: 'Nope, not it!', action: disagree, textColor: 'white', buttonColor: RED},
+  {label: 'Nope!', action: disagree, textColor: 'white', buttonColor: RED},
   {label: 'That\'s right!', action: agree, textColor: 'black', buttonColor: YELLOW},
 ];
 
