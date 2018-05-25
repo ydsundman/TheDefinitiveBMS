@@ -6,6 +6,7 @@ import StartScreen from './src/screens/StartScreen'
 import StatementScreen from './src/screens/StatementScreen'
 import FixOrDeleteScreen from './src/screens/FixOrDeleteScreen'
 import LastScreen from './src/screens/LastScreen'
+import SuccessScreen from './src/screens/SuccessScreen'
 
 import styles from './src/lib/styles'
 import statements from './src/lib/statements'
@@ -44,12 +45,17 @@ export default class App extends React.Component {
     this.setState(() => ({ phase: 'loop', index }));
   };
 
+  navSuccess = () => {
+    this.setState({phase: 'success'})
+  };
+
   loading = () => this.state.phase === 'loading';
   start = () => this.state.phase === 'start';
   loop = () => this.state.phase === 'loop';
   fix = () => this.state.phase === 'fix';
   del = () => this.state.phase === 'del';
   last = () => this.state.phase === 'last';
+  success = () => this.state.phase === 'success';
 
   render() {
     return (
@@ -57,9 +63,10 @@ export default class App extends React.Component {
         {this.loading() && <LoadingScreen />}
         {this.start() && <StartScreen action={this.navLoop()} />}
         {this.loop() && <StatementScreen agree={this.navAgree} disagree={this.navDisagree} text={statements[this.state.index].text} />}
-        {this.fix() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={true} />}
-        {this.del() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={false} />}
+        {this.fix() && <FixOrDeleteScreen agree={this.navSuccess} disagree={this.navDisagree} fix={true} />}
+        {this.del() && <FixOrDeleteScreen agree={this.navSuccess} disagree={this.navDisagree} fix={false} />}
         {this.last() && <LastScreen start={this.navStart} />}
+        {this.success() && <SuccessScreen action={this.navLoop()} />}
       </SafeAreaView>
     );
   }
