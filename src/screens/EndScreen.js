@@ -6,10 +6,10 @@ import Buttons from '../lib/Buttons'
 import { YELLOW } from "../lib/colors";
 import styles from '../lib/styles'
 
-const text = 'YAY!\nHigh five!\nNo more bugs?';
+const text = 'YAY! High five!\nYou are awesome!';
 
 const buttons = (action) => [
-  {label: 'Start Over!', action, textColor: 'white', buttonColor: YELLOW},
+  {label: 'Back to start', action, textColor: 'black', buttonColor: YELLOW},
 ];
 
 const EndScreen = ({action}) => (

@@ -6,7 +6,7 @@ import Buttons from '../lib/Buttons'
 import { RED, YELLOW } from "../lib/colors";
 import styles from '../lib/styles'
 
-const start = 'Woohoo!\nWell done!\nAre you down to zero bugs?';
+const start = 'Woohoo! Well done!\nAre you down to zero bugs?';
 
 const buttons = (noAction, yesAction) => [
   {label: 'No!', action: noAction, textColor: 'white', buttonColor: RED},
