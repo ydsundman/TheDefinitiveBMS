@@ -1,72 +1,54 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
-import Button from './Button'
-import { range } from 'ramda'
+import LoadingScreen from './LoadingScreen'
+import StartScreen from './StartScreen'
+import StatementScreen from './StatementScreen'
+import FixOrDeleteScreen from './FixOrDeleteScreen'
 
-const RED = '#d91616';
-const YELLOW = '#ffca05';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  main: {
-    flex: 6,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mainText: {
-    fontSize: 30,
-  },
-  buttons: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'row',
-  },
-});
-
-const createView = text => (
-  <View style={styles.main} onClick={() => alert('xxx')}>
-    <Text style={styles.mainText}>{text}</Text>
-  </View>
-);
-
-const views = range(0, 5).map(i => createView(`Text for view ${i}`));
-
-const Buttons = ({disagree, agree}) => (
-  <View style={styles.buttons}>
-    <Button text={'Disagree'} onPress={disagree} textColor="white" buttonColor={RED}/>
-    <Button text={'Agree'} onPress={agree} textColor="black" buttonColor={YELLOW}/>
-  </View>
-);
-Buttons.propTypes = {
-  agree: PropTypes.func.isRequired,
-  disagree: PropTypes.func.isRequired,
-};
+import styles from './styles'
+import statements from './statements'
 
 export default class App extends React.Component {
   state = {
-    index: 0
+    phase:'loading',
+    index: 0,
   };
 
-  agree = () => {
-    this.setState(state => ({ index: (state.index + 1) % views.length }));
+  componentDidMount() {
+    setTimeout(() => this.setState({phase: 'start'}), 3000)
+  }
+
+  navAgree = () => {
+    if (this.state.phase === 'fix' || this.state.phase === 'del') {
+      this.setState({phase: 'start'})
+    } else {
+      this.setState({phase: statements[this.state.index].fix ? 'fix' : 'del'})
+    }
   };
 
-  disagree = () => {
-    this.setState(() => ({ index: 0}))
+  navDisagree = () => {
+    this.navLoop((this.state.index + 1) % statements.length )();
   };
+
+  navLoop = (index = 0) => () => {
+    this.setState(() => ({ phase: 'loop', index }));
+  };
+
+  loading = () => this.state.phase === 'loading';
+  start = () => this.state.phase === 'start';
+  loop = () => this.state.phase === 'loop';
+  fix = () => this.state.phase === 'fix';
+  del = () => this.state.phase === 'del';
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {views[this.state.index]}
-        <Buttons agree={this.agree} disagree={this.disagree}/>
+        {this.loading() && <LoadingScreen />}
+        {this.start() && <StartScreen action={this.navLoop()} />}
+        {this.loop() && <StatementScreen agree={this.navAgree} disagree={this.navDisagree} text={statements[this.state.index].text} />}
+        {this.fix() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={true} />}
+        {this.del() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={false} />}
       </SafeAreaView>
     );
   }
