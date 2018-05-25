@@ -13,6 +13,7 @@ export default StyleSheet.create({
   bodyText: {
     fontSize: 30,
     padding: 30,
+    textAlign: 'center',
   },
   footer: {
     flex: 1,
