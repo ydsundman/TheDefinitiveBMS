@@ -3,28 +3,30 @@ import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
 import Buttons from '../lib/Buttons'
-import { YELLOW } from "../lib/colors";
+import { RED, YELLOW } from "../lib/colors";
 import styles from '../lib/styles'
 
-const start = 'Woohoo!\nWell done!\nLet\'s figure out what to do with another bug!';
+const start = 'Woohoo!\nWell done!\nAre you down to zero bugs?';
 
-const buttons = (action) => [
-  {label: 'Let\'s!', action, textColor: 'black', buttonColor: YELLOW},
+const buttons = (noAction, yesAction) => [
+  {label: 'No!', action: noAction, textColor: 'white', buttonColor: RED},
+  {label: 'Yes!', action: yesAction, textColor: 'black', buttonColor: YELLOW},
 ];
 
-const SuccessScreen = ({action}) => (
+const SuccessScreen = ({noAction, yesAction}) => (
   <View style={styles.container}>
     <View style={styles.body}>
       <Text style={styles.bodyText}>{start}</Text>
     </View>
     <View style={styles.footer}>
-      <Buttons buttons={buttons(action)}/>
+      <Buttons buttons={buttons(noAction, yesAction)}/>
     </View>
   </View>
 );
 
 SuccessScreen.propTypes = {
-  action: PropTypes.func.isRequired,
+  yesAction: PropTypes.func.isRequired,
+  noAction: PropTypes.func.isRequired,
 };
 
 export default SuccessScreen
