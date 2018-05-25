@@ -5,6 +5,7 @@ import LoadingScreen from './LoadingScreen'
 import StartScreen from './StartScreen'
 import StatementScreen from './StatementScreen'
 import FixOrDeleteScreen from './FixOrDeleteScreen'
+import LastScreen from './LastScreen'
 
 import styles from './styles'
 import statements from './statements'
@@ -16,8 +17,12 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(() => this.setState({phase: 'start'}), 3000)
+    setTimeout(this.navStart, 3000)
   }
+
+  navStart = () => {
+    this.setState({phase: 'start'})
+  };
 
   navAgree = () => {
     if (this.state.phase === 'fix' || this.state.phase === 'del') {
@@ -28,7 +33,11 @@ export default class App extends React.Component {
   };
 
   navDisagree = () => {
-    this.navLoop((this.state.index + 1) % statements.length )();
+    if (this.state.index === statements.length - 1 ) {
+      this.setState({phase: 'last'})
+    } else {
+      this.navLoop((this.state.index + 1) % statements.length )();
+    }
   };
 
   navLoop = (index = 0) => () => {
@@ -40,6 +49,7 @@ export default class App extends React.Component {
   loop = () => this.state.phase === 'loop';
   fix = () => this.state.phase === 'fix';
   del = () => this.state.phase === 'del';
+  last = () => this.state.phase === 'last';
 
   render() {
     return (
@@ -49,6 +59,7 @@ export default class App extends React.Component {
         {this.loop() && <StatementScreen agree={this.navAgree} disagree={this.navDisagree} text={statements[this.state.index].text} />}
         {this.fix() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={true} />}
         {this.del() && <FixOrDeleteScreen agree={this.navAgree} disagree={this.navDisagree} fix={false} />}
+        {this.last() && <LastScreen start={this.navStart} />}
       </SafeAreaView>
     );
   }
