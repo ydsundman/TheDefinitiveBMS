@@ -7,8 +7,8 @@ import { YELLOW, RED } from '../lib/colors';
 import Buttons from '../lib/Buttons';
 
 const buttons = (agree, disagree) => [
-  {label: 'Nope!', action: disagree, textColor: 'white', buttonColor: RED},
-  {label: 'That\'s right!', action: agree, textColor: 'black', buttonColor: YELLOW},
+  {label: 'No', action: disagree, textColor: 'white', buttonColor: RED},
+  {label: 'Yes', action: agree, textColor: 'black', buttonColor: YELLOW},
 ];
 
 const StatementScreen = ({agree, disagree, text}) => (

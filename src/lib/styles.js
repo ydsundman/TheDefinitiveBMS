@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   body: {
-    flex: 6,
+    flex: 4,
     alignItems: 'center',
     justifyContent: 'center',
   },
