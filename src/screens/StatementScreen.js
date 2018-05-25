@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
 import styles from '../lib/styles';
-import { YELLOW, RED } from "../lib/colors";
+import { YELLOW, RED } from '../lib/colors';
 import Buttons from '../lib/Buttons';
 
 const buttons = (agree, disagree) => [
