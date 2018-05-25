@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import styles from './styles';
-import { YELLOW, RED } from "./colors";
-
-import Buttons from './Buttons';
+import styles from '../lib/styles';
+import { YELLOW, RED } from "../lib/colors";
+import Buttons from '../lib/Buttons';
 
 const buttons = (agree, disagree) => [
   {label: 'Nope, not it!', action: disagree, textColor: 'white', buttonColor: RED},

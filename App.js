@@ -1,14 +1,14 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 
-import LoadingScreen from './LoadingScreen'
-import StartScreen from './StartScreen'
-import StatementScreen from './StatementScreen'
-import FixOrDeleteScreen from './FixOrDeleteScreen'
-import LastScreen from './LastScreen'
+import LoadingScreen from './src/screens/LoadingScreen'
+import StartScreen from './src/screens/StartScreen'
+import StatementScreen from './src/screens/StatementScreen'
+import FixOrDeleteScreen from './src/screens/FixOrDeleteScreen'
+import LastScreen from './src/screens/LastScreen'
 
-import styles from './styles'
-import statements from './statements'
+import styles from './src/lib/styles'
+import statements from './src/lib/statements'
 
 export default class App extends React.Component {
   state = {

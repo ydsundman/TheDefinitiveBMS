@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import styles from './styles'
-import { YELLOW } from './colors';
-import Buttons from './Buttons'
+import styles from '../lib/styles'
+import { YELLOW } from '../lib/colors';
+import Buttons from '../lib/Buttons'
 
 const buttons = start => [
   {label: 'Try again!', action: start, textColor: 'black', buttonColor: YELLOW},

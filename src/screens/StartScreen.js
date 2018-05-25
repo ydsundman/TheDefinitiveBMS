@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import Buttons from './Buttons'
-import { YELLOW } from "./colors";
-import styles from './styles'
+import Buttons from '../lib/Buttons'
+import { YELLOW } from "../lib/colors";
+import styles from '../lib/styles'
 
 const start = 'Let\'s figure out what to do with your bug!';
 
