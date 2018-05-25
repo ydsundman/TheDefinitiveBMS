@@ -1,7 +1,7 @@
 export default [
   {text: 'Do you absolutely have to fix this bug ASAP?', fix: true},
   {text: 'Are you prepared to fix this bug right now?', fix: true},
-  {text: 'Ok, so you don\'t want to fix this bug?', fix: false},
+  {text: 'Ok, so you don\'t want to fix this bug right now?', fix: false},
   {text: 'Oh, you\'re holding on to the bug because it might come in handy someday?', fix: false},
   {text: 'You should fix this bug, but you\'re not prepared to prioritize it?', fix: false},
   {text: 'I see! You need to fix this bug, but you just want to fix it later?', fix: false},
