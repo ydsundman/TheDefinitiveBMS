@@ -9,8 +9,8 @@ const LoadingScreen = () => (
     <Text style={styles.bodyText}>The Definitive Bug Management System</Text>
     <Image
       style={{
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 150,
       }}
       source={logo}/>
   </View>
