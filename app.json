@@ -25,7 +25,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "se.yds.dbms"
+      "package": "se.yds.dbms",
+      "permissions": []
     }
   }
 }
