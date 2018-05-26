@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "The Definitive Bug Management System",
+    "icon": "./assets/appstore-bug.png",
+    "version": "0.0.2",
+    "slug": "dbms",
+    "sdkVersion": "27.0.0",
+    "ios": {
+      "bundleIdentifier": "se.yds.dbms"
+    },
+    "android": {
+      "package": "se.yds.dbms"
+    }
   }
 }
