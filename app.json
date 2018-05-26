@@ -1,12 +1,28 @@
 {
   "expo": {
-    "name": "The Definitive Bug Management System",
-    "icon": "./assets/appstore-bug.png",
-    "version": "0.0.2",
+    "name": "Fix it now or Delete it!",
+    "description": "The Definitive Bug Management System",
     "slug": "dbms",
+    "privacy": "public",
     "sdkVersion": "27.0.0",
+    "platforms": ["ios", "android"],
+    "version": "0.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/appstore-bug.png",
+    "splash": {
+      "image": "./assets/bug.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "bundleIdentifier": "se.yds.dbms"
+      "bundleIdentifier": "se.yds.dbms",
+      "supportsTablet": true
     },
     "android": {
       "package": "se.yds.dbms"
