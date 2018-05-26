@@ -26,7 +26,8 @@
     },
     "android": {
       "package": "se.yds.dbms",
-      "permissions": []
+      "permissions": [],
+      "versionCode": 2
     }
   }
 }
