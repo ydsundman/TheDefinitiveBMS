@@ -1,16 +1,16 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 
-import LoadingScreen from './src/screens/LoadingScreen'
-import StartScreen from './src/screens/StartScreen'
-import StatementScreen from './src/screens/StatementScreen'
-import FixOrDeleteScreen from './src/screens/FixOrDeleteScreen'
-import LastScreen from './src/screens/LastScreen'
-import SuccessScreen from './src/screens/SuccessScreen'
-import EndScreen from './src/screens/EndScreen'
+import LoadingScreen from './src/screens/LoadingScreen';
+import StartScreen from './src/screens/StartScreen';
+import StatementScreen from './src/screens/StatementScreen';
+import FixOrDeleteScreen from './src/screens/FixOrDeleteScreen';
+import LastScreen from './src/screens/LastScreen';
+import SuccessScreen from './src/screens/SuccessScreen';
+import EndScreen from './src/screens/EndScreen';
 
-import styles from './src/lib/styles'
-import statements from './src/lib/statements'
+import styles from './src/lib/styles';
+import statements from './src/lib/statements';
 
 export default class App extends React.Component {
   state = {
@@ -19,7 +19,7 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(this.navStart, 3000)
+    setTimeout(this.navStart, 3000);
   }
 
   navStart = () => {
