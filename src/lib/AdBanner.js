@@ -22,7 +22,7 @@ if (testDeviceID) {
 export default () => (
   <AdMobBanner
     style={styles.adBanner}
-    bannerSize="fullBanner"
+    bannerSize="smartBannerPortrait"
     {...adMobProps}
   />
 );

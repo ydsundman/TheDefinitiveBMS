@@ -1,13 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform } from 'react-native';
-import { Constants } from 'expo';
-
-const { statusBarHeight } = Constants;
-
-const top = Platform.select({
-  ios: 0,
-  android: statusBarHeight,
-});
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -26,10 +18,11 @@ export default StyleSheet.create({
   },
   adBanner: {
     position: 'absolute',
-    top,
+    bottom: 0,
   },
   footer: {
     flex: 1,
+    paddingBottom: 50,
   },
   centerChildren: {
     flex: 1,
