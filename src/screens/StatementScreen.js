@@ -14,13 +14,13 @@ const buttons = (agree, disagree) => [
 
 const StatementScreen = ({agree, disagree, text}) => (
   <View style={styles.container}>
-    <AdBanner />
     <View style={styles.body}>
       <Text style={styles.bodyText}>{text}</Text>
     </View>
     <View style={styles.footer}>
       <Buttons buttons={buttons(agree, disagree)} />
     </View>
+    <AdBanner />
   </View>
 );
 

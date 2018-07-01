@@ -15,13 +15,13 @@ const buttons = (action) => [
 
 const StartScreen = ({action}) => (
   <View style={styles.container}>
-    <AdBanner />
     <View style={styles.body}>
       <Text style={styles.bodyText}>{start}</Text>
     </View>
     <View style={styles.footer}>
       <Buttons buttons={buttons(action)}/>
     </View>
+    <AdBanner />
   </View>
 );
 

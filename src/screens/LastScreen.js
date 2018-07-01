@@ -13,13 +13,13 @@ const buttons = start => [
 
 const LastScreen = ({start}) => (
   <View style={styles.container}>
-    <AdBanner />
     <View style={styles.body}>
       <Text style={styles.bodyText}>{'You only have two options:\nDelete the bug or fix it!'}</Text>
     </View>
     <View style={styles.footer}>
       <Buttons buttons={buttons(start)} />
     </View>
+    <AdBanner />
   </View>
 );
 

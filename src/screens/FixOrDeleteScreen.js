@@ -14,13 +14,13 @@ const buttons = (agree, disagree) => [
 
 const FixOrDeleteScreen = ({fix, agree, disagree}) => (
   <View style={styles.container}>
-    <AdBanner />
     <View style={styles.body}>
       <Text style={styles.bodyText}>{fix ? 'Fix it now!' : 'Delete it!'}</Text>
     </View>
     <View style={styles.footer}>
       <Buttons buttons={buttons(agree, disagree)} />
     </View>
+    <AdBanner />
   </View>
 );
 
