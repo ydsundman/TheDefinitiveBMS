@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 
-import LoadingScreen from './src/screens/LoadingScreen';
 import StartScreen from './src/screens/StartScreen';
 import StatementScreen from './src/screens/StatementScreen';
 import FixOrDeleteScreen from './src/screens/FixOrDeleteScreen';
@@ -14,13 +13,9 @@ import statements from './src/lib/statements';
 
 export default class App extends React.Component {
   state = {
-    phase:'loading',
+    phase:'start',
     index: 0,
   };
-
-  componentDidMount() {
-    setTimeout(this.navStart, 3000);
-  }
 
   navStart = () => {
     this.setState({phase: 'start'})
@@ -54,7 +49,6 @@ export default class App extends React.Component {
     this.setState({phase: 'end'})
   };
 
-  loading = () => this.state.phase === 'loading';
   start = () => this.state.phase === 'start';
   loop = () => this.state.phase === 'loop';
   fix = () => this.state.phase === 'fix';
@@ -66,7 +60,6 @@ export default class App extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {this.loading() && <LoadingScreen />}
         {this.start() && <StartScreen action={this.navLoop()} />}
         {this.loop() && <StatementScreen agree={this.navAgree} disagree={this.navDisagree} text={statements[this.state.index].text} />}
         {this.fix() && <FixOrDeleteScreen agree={this.navSuccess} disagree={this.navDisagree} fix={true} />}
