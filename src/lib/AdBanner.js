@@ -20,9 +20,5 @@ if (testDeviceID) {
 }
 
 export default () => (
-  <AdMobBanner
-    style={styles.adBanner}
-    bannerSize="smartBannerPortrait"
-    {...adMobProps}
-  />
+  null
 );

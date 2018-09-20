@@ -22,7 +22,7 @@ export default StyleSheet.create({
   },
   footer: {
     flex: 1,
-    paddingBottom: 50,
+    // paddingBottom: 50,
   },
   centerChildren: {
     flex: 1,
