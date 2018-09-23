@@ -4,9 +4,9 @@
     "description": "The Definitive Bug Management System",
     "slug": "dbms",
     "privacy": "public",
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
-    "version": "0.0.5",
+    "version": "0.0.6",
     "orientation": "portrait",
     "icon": "./assets/appstore-bug.png",
     "splash": {
@@ -27,7 +27,17 @@
     "android": {
       "package": "se.yds.dbms",
       "permissions": [],
-      "versionCode": 2
+      "versionCode": 3,
+      "splash": {
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff",
+        "ldpi": "./assets/bug-200x200.png",
+        "mdpi": "./assets/bug-320x320.png",
+        "hdpi": "./assets/bug-480x480.png",
+        "xhdpi": "./assets/bug-720x720.png",
+        "xxhdpi": "./assets/bug-960x960.png",
+        "xxxhdpi": "./assets/bug-1280x1280.png"
+      }
     }
   }
 }
