@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 import Buttons from '../lib/Buttons';
 import { YELLOW } from "../lib/colors";
 import styles from '../lib/styles';
-import AdBanner from '../lib/AdBanner';
 
 const start = 'Let\'s figure out what to do with your bug!';
 
@@ -21,7 +20,6 @@ const StartScreen = ({action}) => (
     <View style={styles.footer}>
       <Buttons buttons={buttons(action)}/>
     </View>
-    <AdBanner />
   </View>
 );
 

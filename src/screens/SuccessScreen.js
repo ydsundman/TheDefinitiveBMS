@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 import Buttons from '../lib/Buttons'
 import { RED, YELLOW } from "../lib/colors";
 import styles from '../lib/styles'
-import AdBanner from '../lib/AdBanner'
 
 const start = 'Woohoo! Well done!\nAre you down to zero bugs?';
 
@@ -16,7 +15,6 @@ const buttons = (noAction, yesAction) => [
 
 const SuccessScreen = ({noAction, yesAction}) => (
   <View style={styles.container}>
-    <AdBanner />
     <View style={styles.body}>
       <Text style={styles.bodyText}>{start}</Text>
     </View>

@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 import styles from '../lib/styles'
 import { YELLOW } from '../lib/colors';
 import Buttons from '../lib/Buttons';
-import AdBanner from '../lib/AdBanner';
 
 const buttons = start => [
   {label: 'Try again!', action: start, textColor: 'black', buttonColor: YELLOW},
@@ -19,7 +18,6 @@ const LastScreen = ({start}) => (
     <View style={styles.footer}>
       <Buttons buttons={buttons(start)} />
     </View>
-    <AdBanner />
   </View>
 );
 

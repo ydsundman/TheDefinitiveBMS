@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 import Buttons from '../lib/Buttons'
 import { YELLOW } from "../lib/colors";
 import styles from '../lib/styles';
-import AdBanner from '../lib/AdBanner';
 
 const text = 'YAY! High five!\nYou are awesome!';
 
@@ -21,7 +20,6 @@ const EndScreen = ({action}) => (
     <View style={styles.footer}>
       <Buttons buttons={buttons(action)}/>
     </View>
-    <AdBanner />
   </View>
 );
 

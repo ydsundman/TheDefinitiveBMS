@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 import styles from '../lib/styles'
 import { RED, YELLOW } from '../lib/colors';
 import Buttons from '../lib/Buttons';
-import AdBanner from '../lib/AdBanner';
 
 const buttons = (agree, disagree) => [
   {label: 'No way!', action: disagree, textColor: 'white', buttonColor: RED},
@@ -20,7 +19,6 @@ const FixOrDeleteScreen = ({fix, agree, disagree}) => (
     <View style={styles.footer}>
       <Buttons buttons={buttons(agree, disagree)} />
     </View>
-    <AdBanner />
   </View>
 );
 
