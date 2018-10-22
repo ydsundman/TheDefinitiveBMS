@@ -5,6 +5,7 @@ import { Text, View } from 'react-native';
 import Buttons from '../lib/Buttons'
 import { YELLOW } from "../lib/colors";
 import styles from '../lib/styles';
+import PrivacyPolicy from "../lib/PrivacyPolicy";
 
 const text = 'YAY! High five!\nYou are awesome!';
 
@@ -14,6 +15,7 @@ const buttons = (action) => [
 
 const EndScreen = ({action}) => (
   <View style={styles.container}>
+    <PrivacyPolicy/>
     <View style={styles.body}>
       <Text style={styles.bodyText}>{text}</Text>
     </View>

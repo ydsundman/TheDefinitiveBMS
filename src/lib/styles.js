@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform, StatusBar } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -16,13 +16,17 @@ export default StyleSheet.create({
     padding: 30,
     textAlign: 'center',
   },
-  adBanner: {
-    position: 'absolute',
-    bottom: 0,
+  linkPos: {
+    top: Platform.OS === 'ios' ? 2 : StatusBar.currentHeight,
+    left: 2,
+  },
+  link: {
+    padding: 3,
+    color:'blue',
+    fontSize: 12,
   },
   footer: {
     flex: 1,
-    // paddingBottom: 50,
   },
   centerChildren: {
     flex: 1,

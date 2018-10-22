@@ -5,6 +5,7 @@ import { Text, View } from 'react-native';
 import styles from '../lib/styles';
 import { YELLOW, RED } from '../lib/colors';
 import Buttons from '../lib/Buttons';
+import PrivacyPolicy from "../lib/PrivacyPolicy";
 
 const buttons = (agree, disagree) => [
   {label: 'No', action: disagree, textColor: 'white', buttonColor: RED},
@@ -13,6 +14,7 @@ const buttons = (agree, disagree) => [
 
 const StatementScreen = ({agree, disagree, text}) => (
   <View style={styles.container}>
+    <PrivacyPolicy/>
     <View style={styles.body}>
       <Text style={styles.bodyText}>{text}</Text>
     </View>
