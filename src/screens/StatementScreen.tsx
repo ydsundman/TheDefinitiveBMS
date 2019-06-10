@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
 import styles from '../lib/styles';
@@ -19,15 +18,9 @@ const StatementScreen = ({agree, disagree, text}) => (
       <Text style={styles.bodyText}>{text}</Text>
     </View>
     <View style={styles.footer}>
-      <Buttons buttons={buttons(agree, disagree)} />
+      <Buttons {...buttons(agree, disagree)} />
     </View>
   </View>
 );
-
-StatementScreen.propTypes = {
-  agree: PropTypes.func.isRequired,
-  disagree: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
 
 export default StatementScreen;
