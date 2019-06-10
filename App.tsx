@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native';
 
 import StartScreen from './src/screens/StartScreen';
@@ -11,65 +11,60 @@ import EndScreen from './src/screens/EndScreen';
 import styles from './src/lib/styles';
 import statements from './src/lib/statements';
 
-export default class App extends React.Component {
-  state = {
-    phase: 'start',
-    index: 0,
+export default () => {
+  const [phase, setPhase] = useState('start');
+  const [index, setIndex] = useState(0);
+
+  const navStart = () => {
+    setPhase('start');
   };
 
-  navStart = () => {
-    this.setState({ phase: 'start' });
-  };
-
-  navAgree = () => {
-    if (this.state.phase === 'fix' || this.state.phase === 'del') {
-      this.setState({ phase: 'start' });
+  const navAgree = () => {
+    if (phase === 'fix' || phase === 'del') {
+      setPhase('start');
     } else {
-      this.setState({ phase: statements[this.state.index].fix ? 'fix' : 'del' });
+      setPhase(statements[index].fix ? 'fix' : 'del');
     }
   };
 
-  navDisagree = () => {
-    if (this.state.index === statements.length - 1) {
-      this.setState({ phase: 'last' });
+  const navDisagree = () => {
+    if (index === statements.length - 1) {
+      setPhase('last');
     } else {
-      this.navLoop((this.state.index + 1) % statements.length)();
+      navLoop((index + 1) % statements.length)();
     }
   };
 
-  navLoop = (index = 0) => () => {
-    this.setState(() => ({ phase: 'loop', index }));
+  const navLoop = (index = 0) => () => {
+    setPhase('loop');
+    setIndex(index);
   };
 
-  navSuccess = () => {
-    this.setState({ phase: 'success' });
+  const navSuccess = () => {
+    setPhase('success');
   };
 
-  navEnd = () => {
-    this.setState({ phase: 'end' });
+  const navEnd = () => {
+    setPhase('end');
   };
 
-  start = () => this.state.phase === 'start';
-  loop = () => this.state.phase === 'loop';
-  fix = () => this.state.phase === 'fix';
-  del = () => this.state.phase === 'del';
-  last = () => this.state.phase === 'last';
-  success = () => this.state.phase === 'success';
-  end = () => this.state.phase === 'end';
+  const start = () => phase === 'start';
+  const loop = () => phase === 'loop';
+  const fix = () => phase === 'fix';
+  const del = () => phase === 'del';
+  const last = () => phase === 'last';
+  const success = () => phase === 'success';
+  const end = () => phase === 'end';
 
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        {this.start() && <StartScreen action={this.navLoop()} />}
-        {this.loop() && (
-          <StatementScreen agree={this.navAgree} disagree={this.navDisagree} text={statements[this.state.index].text} />
-        )}
-        {this.fix() && <FixOrDeleteScreen agree={this.navSuccess} disagree={this.navDisagree} fix={true} />}
-        {this.del() && <FixOrDeleteScreen agree={this.navSuccess} disagree={this.navDisagree} fix={false} />}
-        {this.last() && <LastScreen start={this.navStart} />}
-        {this.success() && <SuccessScreen noAction={this.navStart} yesAction={this.navEnd} />}
-        {this.end() && <EndScreen action={this.navStart} />}
-      </SafeAreaView>
-    );
-  }
-}
+  return (
+    <SafeAreaView style={styles.container}>
+      {start() && <StartScreen action={navLoop()} />}
+      {loop() && <StatementScreen agree={navAgree} disagree={navDisagree} text={statements[index].text} />}
+      {fix() && <FixOrDeleteScreen agree={navSuccess} disagree={navDisagree} fix={true} />}
+      {del() && <FixOrDeleteScreen agree={navSuccess} disagree={navDisagree} fix={false} />}
+      {last() && <LastScreen start={navStart} />}
+      {success() && <SuccessScreen noAction={navStart} yesAction={navEnd} />}
+      {end() && <EndScreen action={navStart} />}
+    </SafeAreaView>
+  );
+};
