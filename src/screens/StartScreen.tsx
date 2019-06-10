@@ -1,14 +1,16 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import Buttons from '../lib/Buttons';
+import Buttons, { Props as ButtonsProps } from '../lib/Buttons';
 import { YELLOW } from '../lib/colors';
 import styles from '../lib/styles';
 import PrivacyPolicy from '../lib/PrivacyPolicy';
 
 const start = "Let's figure out what to do with your bug!";
 
-const buttons = (action) => [{ label: "Let's!", action, textColor: 'black', buttonColor: YELLOW }];
+const props = (action): ButtonsProps => ({
+  buttons: [{ label: "Let's!", action, textColor: 'black', buttonColor: YELLOW }],
+});
 
 const StartScreen = ({ action }) => (
   <View style={styles.container}>
@@ -17,7 +19,7 @@ const StartScreen = ({ action }) => (
       <Text style={styles.bodyText}>{start}</Text>
     </View>
     <View style={styles.footer}>
-      <Buttons {...buttons(action)} />
+      <Buttons {...props(action)} />
     </View>
   </View>
 );

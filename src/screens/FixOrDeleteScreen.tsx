@@ -3,13 +3,15 @@ import { Text, View } from 'react-native';
 
 import styles from '../lib/styles';
 import { RED, YELLOW } from '../lib/colors';
-import Buttons, { ButtonProps } from '../lib/Buttons';
+import Buttons, { Props as ButtonsProps } from '../lib/Buttons';
 import PrivacyPolicy from '../lib/PrivacyPolicy';
 
-const buttons = (agree, disagree): Array<ButtonProps> => [
-  { label: 'No way!', action: disagree, textColor: 'white', buttonColor: RED },
-  { label: 'OK!', action: agree, textColor: 'black', buttonColor: YELLOW },
-];
+const props = (agree, disagree): ButtonsProps => ({
+  buttons: [
+    { label: 'No way!', action: disagree, textColor: 'white', buttonColor: RED },
+    { label: 'OK!', action: agree, textColor: 'black', buttonColor: YELLOW },
+  ],
+});
 
 const FixOrDeleteScreen = ({ fix, agree, disagree }) => (
   <View style={styles.container}>
@@ -18,7 +20,7 @@ const FixOrDeleteScreen = ({ fix, agree, disagree }) => (
       <Text style={styles.bodyText}>{fix ? 'Fix it now!' : 'Delete it!'}</Text>
     </View>
     <View style={styles.footer}>
-      <Buttons {...buttons(agree, disagree)} />
+      <Buttons {...props(agree, disagree)} />
     </View>
   </View>
 );

@@ -2,14 +2,17 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Button from './Button';
 
-export interface ButtonProps {
+interface ButtonProps {
   label: string;
   action: () => void;
   textColor: string;
   buttonColor: string;
 }
 
-export default (buttons: Array<ButtonProps>) => (
+export interface Props {
+  buttons: Array<ButtonProps>;
+}
+export default ({ buttons }: Props) => (
   <View style={styles.buttons}>
     {buttons.map(({ label, action, ...rest }: ButtonProps) => (
       <Button key={label} onPress={action} text={label} {...rest} />
