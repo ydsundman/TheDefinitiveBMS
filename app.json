@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Fix It Now",
+    "description": "The Definitive Bug Management System",
+    "slug": "dbms",
+    "privacy": "public",
+    "sdkVersion": "33.0.0",
+    "platforms": ["ios", "android"],
+    "version": "0.1.1",
+    "orientation": "portrait",
+    "icon": "./assets/appstore-bug.png",
+    "splash": {
+      "image": "./assets/bug.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "se.yds.dbms",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "se.yds.dbms",
+      "permissions": [],
+      "versionCode": 4,
+      "splash": {
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff",
+        "ldpi": "./assets/bug-200x200.png",
+        "mdpi": "./assets/bug-320x320.png",
+        "hdpi": "./assets/bug-480x480.png",
+        "xhdpi": "./assets/bug-720x720.png",
+        "xxhdpi": "./assets/bug-960x960.png",
+        "xxxhdpi": "./assets/bug-1280x1280.png"
+      }
+    }
+  }
+}

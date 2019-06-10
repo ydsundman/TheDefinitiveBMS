@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, Platform, StatusBar } from 'react-native';
 
 export default StyleSheet.create({
@@ -22,7 +21,7 @@ export default StyleSheet.create({
   },
   link: {
     padding: 3,
-    color:'blue',
+    color: 'blue',
     fontSize: 12,
   },
   footer: {
