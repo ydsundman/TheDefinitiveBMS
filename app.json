@@ -27,7 +27,7 @@
     "android": {
       "package": "se.yds.dbms",
       "permissions": [],
-      "versionCode": 4,
+      "versionCode": 5,
       "splash": {
         "resizeMode": "contain",
         "backgroundColor": "#ffffff",
